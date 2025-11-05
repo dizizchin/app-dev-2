@@ -1,0 +1,139 @@
+
+body, .main-container {
+    font-family: 'Albert Sans', sans-serif;
+    
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    padding-top: 50px;
+}
+
+/* Empty Cart Message */
+.empty-cart-message {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Browse Button */
+.browse-btn {
+    background-color: #FF5733; /* Red */
+    color: #FFF; /* White for better contrast */
+    font-size: 1.2em;
+    border-radius: 20px;
+    padding: 10px 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.browse-btn:hover {
+    transform: scale(1.1);
+    background-color: #C70039; /* Darker red */
+}
+
+/* Cart Content Styling */
+.cart-content {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.cart-title, .checkout-title {
+    font-family: 'Staatliches', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.table {
+    /* background-color: #222; Dark black */
+    border-radius: 10px;
+}
+
+/* .table-header {
+    /* background-color: #333; Darker gray
+} */
+
+.product-img {
+    width: 80px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Product Details */
+.product-name {
+    color: #FFF; /* White for better contrast */
+    font-weight: bold;
+}
+
+.quantity-control .btn-secondary {
+    background-color: #FF5733; /* Red */
+    border: none;
+    color: white; /* White for better contrast */
+    border-radius: 10px;
+    margin: 0 5px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.quantity-control .btn-secondary:hover {
+    transform: scale(1.1);
+    background-color: #C70039; /* Darker red */
+}
+
+/* Remove Button */
+.remove-btn {
+    background-color: #FF6347; /* Tomato color */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: #FF4500; /* Orange red */
+}
+
+/* Right Column: Checkout */
+.checkout-items {
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.no-items-message {
+    font-style: italic;
+}
+
+.total-cost {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.checkout-btn {
+    color: #FFFFFF;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 1.2em;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.checkout-btn:disabled {
+    background-color: #777; /* Gray */
+    cursor: not-allowed;
+}
+
+.checkout-btn:hover:enabled {
+    background-color: #C70039; /* Darker red */
+    transform: scale(1.05);
+}
+
+/* Checkbox Styling */
+.form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    background-color: #222; /* Darker black */
+}
+
+.form-check-input:checked {
+    background-color: Black; 
+    border-color: Black; 
+}

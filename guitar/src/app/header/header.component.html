@@ -1,0 +1,38 @@
+<div class="header">
+  <div class="logo-menu-container d-flex align-items-center">
+    <div class="logo-container me-3">
+      <a routerLink=""><h1>GFC</h1></a>
+    </div>
+
+    <nav class="menu-container d-flex ">
+      <h3 class="menu-item" routerLink="product">Guitars</h3>
+      <h3 class="menu-item" routerLink="#">Mod Kits</h3>
+      <h3 class="menu-item" routerLink="#">Tutorials</h3>
+      <h3 class="menu-item" routerLink="#">Blog</h3>
+      <h3 class="menu-item" routerLink="#">About</h3>
+    </nav>
+  </div>
+
+  <!-- User Section and Cart Button -->
+  <div class="user-section d-flex align-items-center">
+    <ng-container *ngIf="isLoggedIn; else guestTemplate">
+      <div class="user-info me-3">
+        <span>Logged in as {{ username }}</span>
+        <span *ngIf="userEmail"> ({{ userEmail }})</span>
+        <button class="logout-button ms-2" (click)="logout()">Logout</button>
+      </div>
+    </ng-container>
+
+    <ng-template #guestTemplate>
+      <div class="signin-buttons me-3">
+        <button class="btn-signin" routerLink="/signin">Sign In</button>
+        <button class="btn-signup" routerLink="/signup">Sign Up</button>
+      </div>
+    </ng-template>
+    <button class="cart-button" (click)="refreshCart()">
+      <i class="fas fa-shopping-cart icon nav-icon"></i>
+      <span class="cart-count" *ngIf="isLoggedIn">{{ cartItemCount }}</span>
+    </button>
+
+  </div>
+</div>

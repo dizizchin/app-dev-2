@@ -1,0 +1,36 @@
+<div class="container-fluid hero-contact p-0 m-0 store">
+  <div class="head-container page-header">
+  </div>
+
+  <div class="products-grid">
+    <div *ngFor="let category of productsCategory" class="category-row">
+      <div class="sectionTitle">
+        <h2 class="sectionTitleText">{{ category.categoryName }}</h2>
+      </div>
+      <div class="product-grid">
+        <div class="product-card" *ngFor="let prod of category.products">
+          <img class="product-img" src="../assets/products/{{ prod.imageFile }}.png" alt="{{ prod.productName }}" />
+          <div class="card-container">
+            <p class="product-name">{{ prod.productName }}</p>
+            <b><p class="price">&#8369; {{ prod.price }}</p></b>
+
+            <div class="quantity-cart">
+              <div class="quantity-selector">
+                <button type="button" (click)="decreaseQuantity(prod)">-</button>
+                <span>{{ quantities[prod.id] || 1 }}</span>
+                <button type="button" (click)="increaseQuantity(prod)">+</button>
+              </div>
+              <button type="button" class="add-to-cart-btn" (click)="addToCart(prod)">
+                {{ isProductInUserCart(prod.id) ? 'Edit' : 'Add to Cart' }}
+              </button>
+
+              <button *ngIf="isProductInUserCart(prod.id)" type="button" class="remove-btn add-to-cart-btn" (click)="removeFromCart(prod)">
+                <i class="fas fa-trash"></i> Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

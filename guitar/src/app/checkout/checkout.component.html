@@ -1,0 +1,153 @@
+<body>
+
+  <div class="container mt-5 whole-form">
+    <h1 class="mb-4 text-center">Checkout</h1>
+
+    <div class="card p-4 shadow-sm checkout-card">
+      <!-- Order Status -->
+
+      <!-- Order Summary -->
+      <h4 class="card-title">Order Summary</h4>
+      <table class="table table-bordered table-striped mt-3">
+        <thead class="thead-light">
+          <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{ order.productName }}</td>
+            <td>{{ order.quantity }}</td>
+            <td>&#8369;{{ order.price | number: '1.0-2' }}</td>
+            <td>&#8369;{{ order.totalAmount | number: '1.0-2' }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Order Total -->
+      <div class="d-flex justify-content-between align-items-center mt-3">
+        <h5>Order Total:</h5>
+        <h5 class="text-primary totalAmount">&#8369;{{ totalAmount | number: '1.0-2' }}</h5>
+      </div>
+
+      <!-- User Details -->
+      <div class="form-group mt-4">
+        <label for="userName">Name <b style="color:Red;">*</b></label>
+        <input
+          type="text"
+          class="form-control"
+          id="userName"
+          [(ngModel)]="userName"
+          placeholder="Enter your name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="userEmail">Email<b style="color:Red;">*</b></label>
+        <input
+          type="email"
+          class="form-control"
+          id="userEmail"
+          [(ngModel)]="userEmail"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="userAddress">Address<b style="color:Red;">*</b></label>
+        <textarea
+          class="form-control"
+          id="userAddress"
+          [(ngModel)]="userAddress"
+          rows="3"
+          placeholder="Enter your address"
+          required
+        ></textarea>
+      </div>
+
+      <!-- Payment Method Selection -->
+      <div class="form-group">
+        <h5 class="mt-4">Select Payment Method <b style="color:Red;">*</b></h5>
+        <select
+          class="form-control"
+          [(ngModel)]="selectedPaymentMethod"
+          [disabled]="paid"
+          (change)="updatePaymentButton()"
+          required
+        >
+          <option value="" disabled>Select Payment Method</option>
+          <option value="gcash">Gcash</option>
+          <option value="maya">Maya</option>
+        </select>
+      </div>
+
+      <!-- Phone Number Field -->
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number<b style="color:Red;">*</b></label>
+        <input
+          type="tel"
+          class="form-control"
+          id="phoneNumber"
+          [(ngModel)]="phoneNumber".
+          placeholder="Enter your phone number"
+          [disabled]="!selectedPaymentMethod || paid"
+          required
+        />
+      </div>
+
+      <!-- Dynamic Payment Button -->
+      <button
+        type="button"
+        class="btn payment-button btn-block mt-2"
+        [ngClass]="{
+          'btn-primary': selectedPaymentMethod === 'gcash' && !paid,
+          'btn-dark text-success': selectedPaymentMethod === 'maya' && !paid,
+          'btn-success': paid
+        }"
+        [disabled]="
+          paid ||
+          !selectedPaymentMethod ||
+          !userName ||
+          !userEmail ||
+          !userAddress ||
+          !phoneNumber
+        "
+        (click)="simulateEwalletPayment()"
+      >
+        {{ paid ? 'Payment Success' : 'Pay with ' + (selectedPaymentMethod | titlecase) }}
+      </button>
+
+      <!-- Payment Success Modal -->
+      <div
+        class="modal"
+        [ngClass]="{ 'show': paymentSuccess }"
+        [ngStyle]="{ 'display': paymentSuccess ? 'block' : 'none' }"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body text-center">
+              <h5 class="text-success">Payment Successful!</h5>
+              <p>Total Amount Paid: &#8369;{{ totalAmount | number: '1.0-2' }}</p>
+              <button type="button" class="btn btn-info mt-3" (click)="printInvoice()">
+                Print Invoice
+              </button>
+              <button type="button" class="btn btn-secondary mt-3" (click)="closePaymentModal()">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Complete Order Button -->
+      <button type="button" class="btn btn-success btn-block mt-4" [ngClass]="{ 'disabled': !paid }">
+        <i class="fa fa-check" *ngIf="!processingOrder"></i>
+        <i class="fa-solid fa-spinner fa-spin" *ngIf="processingOrder"></i>
+        {{ processingOrder ? 'Processing Order...' : (paid ? 'Order Complete!' : 'Complete Order') }}
+      </button>
+    </div>
+  </div>
+  </body>

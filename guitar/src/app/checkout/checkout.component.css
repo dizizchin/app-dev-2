@@ -1,0 +1,120 @@
+/* General styles */
+body {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.container {
+  max-width: 800px; /* Limit the width for better readability */
+  margin: 0 auto; /* Center the container */
+  padding: 20px; /* Add padding for spacing */
+}
+
+/* Card styles */
+.checkout-card {
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly darker shadow for depth */
+  padding: 20px; /* Add padding for spacing within the card */
+}
+
+
+h5 {
+  margin-bottom: 0; /* Remove bottom margin for tighter spacing */
+
+}
+
+/* Order Status */
+.order-status {
+  font-weight: bold; /* Bold for emphasis */
+  margin-bottom: 10px; /* Space below the status */
+}
+
+/* Table styles */
+.table {
+  width: 100%; /* Full width for the table */
+  margin-top: 10px; /* Spacing above the table */
+}
+
+.totalAmount {
+  margin-right: 110px;
+}
+
+.form-group{
+  margin-left:auto;
+  margin-right: auto;
+}
+
+.form-group input{
+  width: 400px;
+}
+
+.form-group textarea{
+  width: 400px;
+}
+
+.form-group textarea{
+  width: 400px;
+}
+
+.form-group select{
+  width: 400px;
+}
+
+
+
+.form-control {
+  background-color:  rgb(220, 220, 220); /* Light yellow background for inputs */
+  border-radius: 5px; /* Rounded corners */
+  color: #333; /* Dark text color for inputs */
+}
+
+.form-control:focus {
+  box-shadow: 0 0 5px rgba(255, 204, 0, 0.5); /* Yellow shadow on focus */
+}
+
+/* Payment button styles */
+.payment-button {
+  background-color: White; /* Yellow background */
+  color: #333; /* Dark text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding for button */
+}
+
+.payment-button:hover {
+  background-color: gray; /* Darker yellow on hover */
+}
+
+/* Modal styles */
+.modal {
+  background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+  color: #fff; /* White text in modal */
+}
+
+.modal-dialog {
+  margin: auto; /* Center the modal dialog */
+}
+
+.modal-content {
+  background-color: #333; /* Black background for modal */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Complete order button */
+.btn-success {
+  background-color: #28a745; /* Green background */
+  color: #fff; /* White text */
+}
+
+.btn-success:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.disabled {
+  background-color: #ccc; /* Gray background for disabled state */
+  color: #666; /* Dark gray text */
+}

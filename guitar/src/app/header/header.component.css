@@ -1,0 +1,87 @@
+.header {
+  border: 1px solid;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.logo-menu-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container h1 {
+
+}
+
+.logo-container a {
+  color: Black;
+  text-decoration: none;
+}
+
+.menu-container {
+  display: flex;
+  gap: 1rem;
+}
+
+  .menu-item {
+    border: 1px solid transparent;
+    padding: 0.25rem 0.75rem;
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+
+.menu-item:hover {
+  color: #0000ff;
+  border-bottom: 2px solid #0000ff;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+}
+
+.logout-button {
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logout-button:hover {
+  color: #000;
+}
+
+.signin-buttons button {
+  background-color: transparent;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cart-button {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.cart-button:hover {
+  transform: scale(1.1);
+}
+
+.cart-count {
+  background-color: #0000ff;
+  color: White;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+  top: -5px;
+  right: -10px;
+}
